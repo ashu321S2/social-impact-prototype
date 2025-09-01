@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Impact Dashboard Prototype</title>
+<style>
+:root {
+    --background-dark: #202020;
+    --background-gold: #d4af37;
+    --card-background: rgba(30, 30, 30, 0.9);
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --negative-color: #e74c3c;
+    --neutral-color: #bdc3c7;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background: linear-gradient(135deg, var(--background-dark) 40%, var(--background-gold) 100%);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background: linear-gradient(180deg, var(--background-dark) 0%, var(--background-gold) 100%);
+    color: var(--heading-color);
+    padding: 2em 1.5em;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: var(--heading-color);
+    text-shadow: 0 0 6px rgba(212, 175, 55, 0.8);
+}
+
+.sidebar-item {
+    padding: 1em;
+    margin: 0.5em 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: var(--text-color);
+}
+
+.sidebar-item:hover {
+    background-color: var(--background-gold);
+    color: var(--background-dark);
+    font-weight: bold;
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    padding: 2em;
+    overflow-y: auto;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    background: linear-gradient(90deg, var(--background-dark) 0%, var(--background-gold) 100%);
+    color: var(--heading-color);
+    padding: 1.5em 1em;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 2em;
+    border-radius: 12px;
+    border: 2px solid var(--background-gold);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: 600;
+    color: var(--heading-color);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+}
+
+/* Posts Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.post-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5em;
+}
+
+.post {
+    padding: 1.5em;
+    border-radius: 12px;
+    background-color: var(--card-background);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.post:hover {
+    transform: translateY(-5px);
+}
+
+.post-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1em;
+}
+
+.post p {
+    margin: 0.5em 0;
+}
+
+.sentiment-label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    color: white;
+    display: inline-block;
+}
+
+.post.negative .sentiment-label {
+    background-color: var(--negative-color);
+}
+
+.post.neutral .sentiment-label {
+    background-color: var(--neutral-color);
+}
+</style>
+</head>
+<body>
+<div class="sidebar">
+    <h2>Dashboard</h2>
+    <div class="sidebar-item">Trends</div>
+    <div class="sidebar-item">Reports</div>
+    <div class="sidebar-item">Settings</div>
+</div>
+
+<div class="main-content">
+    <div class="header">
+        <h1>Adverse Social Impact Tracker</h1>
+        <p>A prototype dashboard for monitoring and analyzing social media content.</p>
+    </div>
+
+    <div class="container">
+        <p>No posts found. Displaying prototype posts to demonstrate the dashboard's functionality.</p>
+        <div class="post-container">
+            <div class="post negative">
+                <img src="https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=940&h=650&dpr=2" class="post-image" alt="A hand holding a phone showing a broken heart emoji">
+                <p><strong>Content:</strong> "This platform is a breeding ground for harmful misinformation. It's a dangerous place."</p>
+                <p><strong>Sentiment:</strong> <span class="sentiment-label">negative</span></p>
+            </div>
+
+            <div class="post neutral">
+                <img src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=940&h=650&dpr=2" class="post-image" alt="A laptop with a social media feed">
+                <p><strong>Content:</strong> "Just saw the latest software update. It seems to work as expected."</p>
+                <p><strong>Sentiment:</strong> <span class="sentiment-label">neutral</span></p>
+            </div>
+
+            <div class="post negative">
+                <img src="https://images.pexels.com/photos/3160759/pexels-photo-3160759.jpeg?auto=compress&cs=tinysrgb&w=940&h=650&dpr=2" class="post-image" alt="A person looking at a phone with a sad expression">
+                <p><strong>Content:</strong> "The toxicity on this forum is out of control. It's unhealthy for anyone trying to have a real discussion."</p>
+                <p><strong>Sentiment:</strong> <span class="sentiment-label">negative</span></p>
+            </div>
+
+            <div class="post neutral">
+                <img src="https://images.pexels.com/photos/3861962/pexels-photo-3861962.jpeg?auto=compress&cs=tinysrgb&w=940&h=650&dpr=2" class="post-image" alt="People gathering around a table with a phone">
+                <p><strong>Content:</strong> "Excited to see what new features are coming next week!"</p>
+                <p><strong>Sentiment:</strong> <span class="sentiment-label">neutral</span></p>
+            </div>
+
+            <div class="post negative">
+                <img src="https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=940&h=650&dpr=2" class="post-image" alt="An angry person shouting">
+                <p><strong>Content:</strong> "I'm so tired of all the trolling and hate speech. This platform is failing to moderate."</p>
+                <p><strong>Sentiment:</strong> <span class="sentiment-label">negative</span></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
